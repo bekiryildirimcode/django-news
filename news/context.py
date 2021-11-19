@@ -1,6 +1,6 @@
-from news.models import Genre
+from news.models import Category
 
 def category_all(request):
     return {
-        "category":Genre.objects.all()
+        "category":Category.objects.all()
     } 
