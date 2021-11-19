@@ -1,0 +1,1 @@
+from .genre import show_genres
