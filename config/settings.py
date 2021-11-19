@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'news',
     'mptt',
-    'autoslug'
+    'autoslug',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [

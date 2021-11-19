@@ -9,6 +9,8 @@ django-mptt = "*"
 django-allauth = "*"
 django-autoslug = "*"
 django-crispy-forms = "*"
+django-ckeditor = "*"
+pillow = "*"
 
 [dev-packages]
 

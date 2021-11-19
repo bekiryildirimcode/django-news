@@ -1,5 +1,5 @@
 from django.contrib import admin
-from news.models import Category
+from news.models import Category,NewsModel
 from mptt.admin import MPTTModelAdmin
 from mptt.admin import DraggableMPTTAdmin
 from mptt.admin import TreeRelatedFieldListFilter
@@ -16,3 +16,8 @@ class GenreAdmin(admin.ModelAdmin):
         
         # ...more fields if you feel like it...
     )
+
+@admin.register(NewsModel)
+class NewsAdmin(admin.ModelAdmin):
+    model=NewsModel
+    list_display=("name",)
