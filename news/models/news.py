@@ -4,6 +4,8 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
 from news.models import Category
+from django.utils import timezone
+
 from ckeditor.fields import RichTextField
 class NewsModel(models.Model):
     image=models.ImageField(upload_to="news_image",null=False, default="Some String")
@@ -13,7 +15,14 @@ class NewsModel(models.Model):
     title=models.TextField(unique=True,null=True)
     description = RichTextField(null=False,default="Some String")
     data=models.JSONField(null=True)
-    author=models.ManyToManyField(User)
+    author=models.ForeignKey(User,on_delete=models.CASCADE,related_name="author",null=True)
+    videolink=models.CharField(max_length=250, unique=False,null=True)
+    breking= models.BooleanField(default=True)
+    slider= models.BooleanField(default=True)
+    click =models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
 
     class Meta:
