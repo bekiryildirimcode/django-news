@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-
+from news.views import HomeView
  
 urlpatterns = [
-  #  path('', show_genres),
+    path('', HomeView.as_view(),name="homepage"),
 ]

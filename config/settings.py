@@ -175,7 +175,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_LOGOUT_REDIRECT_URL ='/accounts/login/' 
   
 # redirects to profile page if not configured.
-LOGIN_REDIRECT_URL = '/accounts/email/'
+LOGIN_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SOCIALACCOUNT_PROVIDERS = {

@@ -68,7 +68,11 @@
                             <ul class="topbar-link">
                                 <li><a href="#" title="">Career</a></li>
                                 <li><a href="#" title="">Contact Us</a></li>
-                                <li><a href="#" title="">Login / Register</a></li>
+                                {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'account_logout' %}" title="">Çıkış</a></li>
+                                {% else  %}
+                                <li><a href="{% url 'account_login' %}" title="">Giriş / Kayıt</a></li>
+                                {% endif %}
                             </ul>
                             <ul class="topbar-sosmed">
                                 <li>
