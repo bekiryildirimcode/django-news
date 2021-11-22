@@ -30,7 +30,7 @@ class NewsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['videolink'].required = False
         self.fields['data'].required = False
-
+    
     class Meta:
         model = NewsModel
         fields = '__all__'

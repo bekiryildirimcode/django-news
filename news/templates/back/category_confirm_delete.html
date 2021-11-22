@@ -1,0 +1,16 @@
+
+{% extends 'back/base.html' %}
+{% block title %} Kategori {% endblock %}
+
+{% block content %}
+
+
+<div class="col-md-12 col-sm-12">
+    <form method="post">{% csrf_token %}
+        <p> Silmek istediğine emin misin "{{ object }}"?</p>
+        <input class="btn btn-danger"  type="submit" value="EVET">
+    </form>    
+  </div>
+
+  
+{% endblock %}

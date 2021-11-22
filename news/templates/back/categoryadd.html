@@ -1,0 +1,58 @@
+{% extends 'back/base.html' %}
+{% load adminlte_helpers i18n %}
+{% load crispy_forms_tags %}
+{% load mptt_tags %}
+{% block title %} Kategori {% endblock %}
+
+{% block content %}
+
+
+<div class="col-md-12 col-sm-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Category Ekle</h3>
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+      <form method="POST" >
+        {% csrf_token %}
+        <div class="card-body">
+     
+            {{form|crispy}}
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.card -->
+  </div>
+  <div class="col-md-12 col-sm-12">
+    <!-- general form elements -->
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Category Ağacı</h3>
+      </div>
+      <!-- /.card-header -->
+      <ul data-widget="treeview" >
+        {% recursetree category %}
+            <li class="treeview" >
+                {{ node.name }} <a href="{% url 'categorydelete' slug=node.slug %}"  class="btn btn-danger col-md-1 offset-md-11" style="color: aliceblue;" > <i class="fas fa-trash"></i> </a>
+                {% if not node.is_leaf_node %}
+                    <ul class="treeview-menu">
+                        {{ children }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endrecursetree %}
+    </ul>
+      
+    </div>
+    <!-- /.card -->
+  </div>
+
+  
+{% endblock %}
