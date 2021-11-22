@@ -23,12 +23,15 @@ class NewsModel(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
-
+ 
     class Meta:
 
         verbose_name = 'NewsModel'
         verbose_name_plural = 'NewsModels'
+
+    def get_category(self):
+        return ",".join([str(p) for p in self.category.all()])
+
 
     def __str__(self):
         return self.name

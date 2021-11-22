@@ -18,6 +18,7 @@ class GenreAdmin(admin.ModelAdmin):
         'parent',
         'action',
         
+        
         # ...more fields if you feel like it...
     )
     def action(self, obj):
@@ -38,7 +39,7 @@ class NewsForm(forms.ModelForm):
 class NewsAdmin(admin.ModelAdmin):
   
     form=NewsForm
-    list_display=("image_show","name","title","author","action")
+    list_display=("image_show","name","title","author","action","get_category")
     search_fields = ['name']
     
     def action(self, obj):

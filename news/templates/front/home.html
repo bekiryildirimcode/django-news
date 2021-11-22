@@ -1,7 +1,67 @@
 {% extends 'front/layouts.html' %}
-
+{% load adminlte_helpers i18n %}
 {% block title %} Anasayfa {% endblock %}
 
 {% block content %}
-  
+<section>
+    <!-- Popular news  header-->
+    <div class="popular__news-header">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="card__post-carousel">
+                      
+                        {% for row in slider  %}
+                        
+                            <div class="item">
+                                <!-- Post Article -->
+                                <div class="card__post">
+                                    <div class="card__post__body">
+                                        <a href="">
+                                            <img
+                                                src="{{row.image.url}}"
+                                                class="img-fluid"
+                                                alt=""
+                                            />
+                                        </a>
+                                        <div class="card__post__content bg__post-cover">
+                                            <div
+                                                class="card__post__category">
+                                                {{row.get_category}}
+                                       </div>
+                                                
+                                            <div class="card__post__title">
+                                                <h2>
+                                                    <a href="">
+                                                        {{row.name}}
+                                                    </a>
+                                                </h2>
+                                            </div>
+                                            <div class="card__post__author-info">
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <a href=""> {{row.author}} </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <span>     </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       {%  endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Popular news header-->
+    <!-- Popular news carousel -->
+    
+    <!-- End Popular news carousel -->
+</section>
+
 {% endblock content %}
